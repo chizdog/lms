@@ -23,12 +23,12 @@ services:
     runtime: node
     plan: free            # free tier sleeps when idle; upgrade for always-on
     rootDir: bfc-lms
-    buildCommand: >-
-    npm --prefix server ci --include=dev &&
-    npm --prefix server run build &&
-    npm --prefix client ci --include=dev &&
-    npm --prefix client run build &&
-    ln -sfn ../server/node_modules database/node_modules
+        buildCommand: >-
+      npm --prefix server ci --include=dev &&
+      npm --prefix server run build &&
+      npm --prefix client ci --include=dev &&
+      npm --prefix client run build &&
+      ln -sfn ../server/node_modules database/node_modules
     startCommand: node server/dist/index.js
     healthCheckPath: /api/health
     autoDeploy: true
