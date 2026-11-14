@@ -1,0 +1,28 @@
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build files
+dist/
+build/
+
+# Browser profiles
+demo/chrome-profile/
+
+# Private uploaded files
+storage/*
+!storage/.gitkeep
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db

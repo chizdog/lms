@@ -1,0 +1,44 @@
+{
+  "name": "bfc-lms-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "But First, Coffee LMS — REST API",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "db:schema": "tsx ../database/apply-schema.ts",
+    "db:seed": "tsx ../database/seed.ts",
+    "db:backup": "tsx ../database/backup.ts",
+    "db:reset": "tsx ../database/apply-schema.ts && tsx ../database/seed.ts"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "multer": "^2.0.1",
+    "pdfkit": "^0.16.0",
+    "pg": "^8.23.1",
+    "sharp": "^0.35.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.5",
+    "@types/pdfkit": "^0.13.9",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
