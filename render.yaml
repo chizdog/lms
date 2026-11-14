@@ -17,21 +17,26 @@ databases:
     plan: free            # upgrade to a paid plan for production persistence/backups
     postgresMajorVersion: "16"
 
+
 services:
   - type: web
     name: bfc-lms
     runtime: node
-    plan: free            # free tier sleeps when idle; upgrade for always-on
+    plan: free
     rootDir: bfc-lms
-        buildCommand: >-
+
+    buildCommand: |
       npm --prefix server ci --include=dev &&
       npm --prefix server run build &&
       npm --prefix client ci --include=dev &&
       npm --prefix client run build &&
-      ln -sfn ../server/node_modules database/node_modules
+      rm -rf database/node_modules &&
+      ln -s ../server/node_modules database/node_modules
+
     startCommand: node server/dist/index.js
     healthCheckPath: /api/health
     autoDeploy: true
+
     envVars:
       - key: NODE_ENV
         value: production
