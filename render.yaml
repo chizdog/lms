@@ -18,6 +18,7 @@ databases:
     postgresMajorVersion: "16"
 
 
+
 services:
   - type: web
     name: bfc-lms
@@ -48,6 +49,15 @@ services:
           property: connectionString
       - key: DB_SSL
         value: "true"
+      - key: DB_SSL_REJECT_UNAUTHORIZED
+        value: "false"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: STORAGE_DIR
+        value: /opt/render/project/src/bfc-lms/storage
+
       # Render's managed Postgres presents a certificate that is not in the
       # default public CA bundle, so strict verification is disabled for this
       # managed connection. For strict verification instead, remove this and
