@@ -5,6 +5,13 @@ import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { Button, Input, Field } from '@/components/ui';
 
+const DEMO_ACCOUNTS = [
+  { label: 'Super Admin', identifier: 'superadmin', desc: 'IT · full access' },
+  { label: 'L&D Admin', identifier: 'ld.admin', desc: 'Courses & training' },
+  { label: 'HR Admin', identifier: 'hr.admin', desc: 'People & compliance' },
+  { label: 'Dept Trainer', identifier: 'dept.admin', desc: 'Department scope' },
+  { label: 'Employee', identifier: 'employee', desc: 'Learner experience' },
+];
 
 
 const FEATURES = [
