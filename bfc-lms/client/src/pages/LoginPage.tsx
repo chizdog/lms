@@ -5,13 +5,6 @@ import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { Button, Input, Field } from '@/components/ui';
 
-const DEMO_ACCOUNTS = [
-  { label: 'Super Admin', identifier: 'superadmin', desc: 'IT · full access' },
-  { label: 'L&D Admin', identifier: 'ld.admin', desc: 'Courses & training' },
-  { label: 'HR Admin', identifier: 'hr.admin', desc: 'People & compliance' },
-  { label: 'Dept Trainer', identifier: 'dept.admin', desc: 'Department scope' },
-  { label: 'Employee', identifier: 'employee', desc: 'Learner experience' },
-];
 
 
 const FEATURES = [
@@ -44,11 +37,6 @@ export function LoginPage() {
     }
   };
 
-  const quickFill = (id: string) => {
-    setIdentifier(id);
-    setPassword('Bfc@2026');
-    setError('');
-  };
 
   return (
     <div className="flex min-h-screen">
@@ -123,21 +111,7 @@ export function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400"></p>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {DEMO_ACCOUNTS.map((a) => (
-                <button key={a.identifier} onClick={() => quickFill(a.identifier)} type="button"
-                  className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 text-left transition hover:border-gold-400 hover:bg-gold-50 ${identifier === a.identifier ? 'border-gold-500 bg-gold-50' : 'border-ink-200 bg-white'}`}>
-                  <span>
-                    <span className="block text-sm font-semibold text-ink-800">{a.label}</span>
-                    <span className="block text-[11px] text-ink-400">{a.desc}</span>
-                  </span>
-                  <span className="text-[11px] font-medium text-ink-300">{a.identifier}</span>
-                </button>
-              ))}
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>
