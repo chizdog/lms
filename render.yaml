@@ -1,7 +1,7 @@
 ﻿databases:
   - name: bfc-lms-db
     databaseName: bfc_lms
-    user: bfc_app
+    user: admin
     plan: free
     postgresMajorVersion: "16"
 
