@@ -24,13 +24,18 @@ services:
     runtime: node
     plan: free
 
-    buildCommand: >
-      npm --prefix server ci --include=dev &&
-      npm --prefix server run build &&
-      npm --prefix client ci --include=dev &&
-      npm --prefix client run build &&
+    
+    buildCommand: |
+      cd server &&
+      npm ci --include=dev &&
+      npm run build &&
+      cd ../client &&
+      npm ci --include=dev &&
+      npm run build &&
+      cd .. &&
       rm -rf database/node_modules &&
       ln -s ../server/node_modules database/node_modules
+
 
     startCommand: node server/dist/index.js
     healthCheckPath: /api/health
