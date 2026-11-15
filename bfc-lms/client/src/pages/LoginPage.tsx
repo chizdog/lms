@@ -5,13 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { ApiError } from '@/lib/api';
 import { Button, Input, Field } from '@/components/ui';
 
-const DEMO_ACCOUNTS = [
-  { label: 'Super Admin', identifier: 'superadmin', desc: 'IT · full access' },
-  { label: 'L&D Admin', identifier: 'ld.admin', desc: 'Courses & training' },
-  { label: 'HR Admin', identifier: 'hr.admin', desc: 'People & compliance' },
-  { label: 'Dept Trainer', identifier: 'dept.admin', desc: 'Department scope' },
-  { label: 'Employee', identifier: 'employee', desc: 'Learner experience' },
-];
+
 
 const FEATURES = [
   { icon: <GraduationCap className="h-5 w-5" />, title: 'Structured learning', text: 'Courses, modules and multimedia lessons for every branch.' },
@@ -123,7 +117,7 @@ export function LoginPage() {
           </form>
 
           <div className="mt-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400">Demo accounts · password Bfc@2026</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400"></p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {DEMO_ACCOUNTS.map((a) => (
                 <button key={a.identifier} onClick={() => quickFill(a.identifier)} type="button"
